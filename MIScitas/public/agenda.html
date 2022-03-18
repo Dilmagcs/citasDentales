@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Clínica Dental</title>
+
+    <!-- update the version number as needed >
+    <script defer src="/__/firebase/8.6.8/firebase-app.js"></script>
+   include only the Firebase features as you need >
+    <script defer src="/__/firebase/8.6.8/firebase-auth.js"></script>
+    <script defer src="/__/firebase/8.6.8/firebase-database.js"></script>
+    <script defer src="/__/firebase/8.6.8/firebase-firestore.js"></script>
+    <script defer src="/__/firebase/8.6.8/firebase-functions.js"></script>
+    <script defer src="/__/firebase/8.6.8/firebase-messaging.js"></script>
+    <script defer src="/__/firebase/8.6.8/firebase-storage.js"></script>
+    <script defer src="/__/firebase/8.6.8/firebase-analytics.js"></script>
+    <script defer src="/__/firebase/8.6.8/firebase-remote-config.js"></script>
+    <script defer src="/__/firebase/8.6.8/firebase-performance.js"></script>
+   
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+   
+    <script defer src="/__/firebase/init.js"></script-->
+    <link href="css/style.css" rel="stylesheet">
+ 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+    <style media="screen">
+      
+    </style>
+  </head>
+  <body onload="generaImagen();" style="font-family: 'Roboto'">
+    <div class="canvaLogo" style=" " >
+      <canvas style="display:none;" id="citario" height="200px" width="400px">
+      </canvas>
+      <img src="" id="Image" width="100%" >
+    </div>
+ 
+    <div id="message">
+      <h2>CreaDigital</h2>
+      <h1>Cite tu paciente</h1>
+      <p>Rellena los campos y comparte la imagen presionando el canvas</p>
+  
+      <br>
+      <br>
+      <h2>Posición</h2>
+      <p>Escala Logo</p>
+      <input  oninput="setScaleLogo(this.value);" id="scaleLogo"  min="0.01" max="3" step="0.01" value="0.42" type="range">
+      <div class="row">
+      <div class="col">
+        <p>Horizontal</p>
+        <input  oninput="setpositionX(this.value);" id="positionX"  min="1" max="395" value="50" type="range">
+        
+      </div>
+      <div class="col">
+        <p>Vertical</p>
+        <input  oninput="setpositionY(this.value);" id="positionY"  min="0" max="200" value="0" type="range">
+      </div>
+      </div>
+
+       <h2>Datos</h2>
+      <p>Fecha</p>
+      <input class="form-control" oninput="generaImagen();"  id="Fecha" type="date">
+      <p>Hora</p>
+      <input class="form-control" oninput="generaImagen();" id="Hora"  type="time">
+      <p>Nombre</p>
+      <textarea class="form-control" oninput="generaImagen();" id="Paciente"  type="text"></textarea>
+      <p>Cometario 1</p>
+      <textarea class="form-control" oninput="setComentario(this.value); "  id="Comentario"  type="text"> </textarea>
+      <br>
+      <p>Comentario 2</p>
+      <textarea class="form-control" oninput="setLugar(this.value); "  id="Lugar"  type="text"> </textarea>
+      <br>
+      <br>
+      <!--a>Generar</a-->
+    </div>
+    <p id="load"></p>
+
+  </body>
+  
+  <script src="./scripts/generaCita.js"></script>
+</html>
